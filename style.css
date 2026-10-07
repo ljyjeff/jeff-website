@@ -1,0 +1,162 @@
+/* Mistimed public pages (privacy policy, support). Colours from
+   specs/design/tokens.json: the light and dark roles. */
+:root {
+  --bg: #F2F0E9;
+  --ink: #2C392E;
+  --ink-2: #64685B;
+  --accent: #14653D;
+  --rule: #D9D6CC;
+  --card: #FAF9F5;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #222823;
+    --ink: #D3D1C8;
+    --ink-2: #A5A69A;
+    --accent: #69BF8C;
+    --rule: #3A423B;
+    --card: #2A312B;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 16px 64px;
+}
+header { margin-bottom: 32px; }
+.wordmark {
+  font: 700 28px/1.1 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark .mis { color: var(--accent); font-weight: 500; }
+nav { margin-top: 8px; font-size: 15px; }
+nav a { margin-right: 16px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.01em; }
+h2 { font-size: 20px; margin: 36px 0 8px; }
+p, li { max-width: 62ch; }
+ul { padding-left: 1.2em; }
+li { margin: 6px 0; }
+a { color: var(--accent); }
+.meta { color: var(--ink-2); font-size: 15px; margin: 0 0 24px; }
+.lead { font-size: 19px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+.card p { margin: 0; }
+footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+/* Landing page (index.html): the app's Welcome screen as a web hero.
+   Deep green and wake green are fixed, as on the Welcome screen. */
+.hero {
+  background: #104C2D;
+  color: #F2F0E9;
+  overflow: hidden;
+  position: relative;
+}
+.hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 16px 40px;
+  position: relative;
+}
+.hero .wordmark { color: #F2F0E9; font-size: 32px; }
+.hero .wordmark .mis { color: #7CD69F; font-weight: 400; position: relative; top: 0.06em; }
+.pill {
+  display: inline-block;
+  margin: 28px 0 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(124, 214, 159, 0.16);
+  color: #7CD69F;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.hero h1 { font-size: 36px; color: #F2F0E9; max-width: 16ch; }
+.hero p.sub { color: #CFE3D6; font-size: 18px; margin: 12px 0 0; max-width: 34ch; }
+.scene {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+.bubble {
+  background: #FEE5DC;
+  color: #7D3414;
+  border-radius: 18px 18px 18px 4px;
+  padding: 14px 18px;
+  font-size: 19px;
+  font-weight: 600;
+  max-width: 230px;
+}
+.bubble small { display: block; font-size: 13px; font-weight: 500; opacity: 0.8; margin-bottom: 4px; }
+.clock {
+  position: relative;
+  width: 168px;
+  height: 168px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.clock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, rgba(124, 214, 159, 0.22) 0 1px, transparent 1px 14px);
+}
+.clock .time {
+  position: relative;
+  font: 600 52px/1 -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: #F2F0E9;
+}
+.chip {
+  position: relative;
+  display: inline-block;
+  margin-top: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #7CD69F;
+  color: #104C2D;
+  font-size: 13px;
+  font-weight: 700;
+}
+.features { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 12px; }
+.features li {
+  margin: 0;
+  max-width: none;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.features strong { display: block; font-size: 17px; margin-bottom: 2px; }
+.features span { color: var(--ink-2); font-size: 16px; }
+@media (min-width: 600px) {
+  .features { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 44px; }
+}
+.hero + main { padding-top: 8px; }
